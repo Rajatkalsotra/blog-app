@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+  <div id="contact" class="paddsection">
+      <div class="container">
+        <div class="contact-block1">
+            <h2 class="mb-30">EDIT <%= blog.title %></h2>     
+              <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST" role="form" class="contactForm">
+                <div class="row">                                   
+                  <div class="col-lg-12">
+                    <div class="form-group contact-block1">
+                      <input type="text" name="blog[title]" class="form-control" id="name" value="<%= blog.title %>"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="blog[image]" id="subject" value="<%= blog.image %>"/>                      
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="blog[body]" rows="24"><%= blog.body %></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <input type="submit" class="btn btn-defeault btn-send" value="Submit">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer %>

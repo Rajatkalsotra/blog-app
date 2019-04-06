@@ -1,0 +1,14 @@
+.delete{
+	display: inline;
+}
+.btn{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+textarea.form-control{
+  height: 150px;
+}
+img.img-fluid.col-md-12 {
+	padding-left: 0;
+	padding-right: 0;
+}

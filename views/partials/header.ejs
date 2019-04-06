@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blogs</title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Libraries CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css">
+  <link href="/stylesheets/blog.css" rel="stylesheet">
+  <!-- Main Stylesheet File -->
+  <link href="/stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/app.css" rel="stylesheet">
+  <!-- Responsive css -->
+  <link href="/stylesheets/responsive.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="../shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+  <nav id="main-nav">
+    <div class="row">
+      <div class="container">
+        <div class="logo">
+          <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        </div>
+        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+        <ul class="nav-menu list-unstyled">
+          <li><a href="/" class="smoothScroll">Home</a></li>
+          <li><a href="/blogs" class="smoothScroll">Blogs</a></li>
+          <li><a href="/me" class="smoothScroll">About me</a></li>
+          <% if(!user){ %>
+              <li>
+                    <a class="smoothScroll" href="/login">Login</a>
+              </li>
+              <li>
+                    <a class="smoothScroll" href="/register">Signup</a>
+              </li>
+          <% }else{ %>
+            <li>
+                  <a class="smoothScroll disabled" href="#">Signed in as <%= user.username %></a>
+            </li>
+            <li>
+                  <a class="smoothScroll" href="/logout">Logout</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+  <div class="container">
+      <% if(error && error.length>0){ %>
+        <div class="alert alert-danger" role="alert">     
+          <%= error %>
+        </div>
+      <% } %>
+      <% if(success && success.length>0){  %>
+        <div class="alert alert-success" role="alert">      
+          <%= success %>
+        </div>
+      <% } %>
+    </div>

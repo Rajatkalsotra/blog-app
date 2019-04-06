@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+  <div id="contact" class="paddsection">
+      <div class="container">
+        <div class="contact-block1">
+            <h2 class="mb-30">Edit Comment</h2>          
+              <form action="/blogs/<%= blogId %>/comments/<%= comment._id %>?_method=PUT" method="POST" role="form" class="contactForm">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="comment[text]"><%= comment.text %></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <input type="submit" class="btn btn-defeault btn-send" value="Submit">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer %>

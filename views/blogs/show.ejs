@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+
+	<div class="main-content paddsection">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="row">
+            <div class="container-main single-main">
+              <div class="col-md-12">
+                <div class="block-main mb-30 ">
+
+                  <img src="<%= blog.image %>" onerror="this.src='https://s3.envato.com/files/253555640/IMG_7708.jpg'" class="img-fluid col-md-12"/>             
+                  <div class="content-main single-post padDiv">
+                    <div class="journal-txt">
+                      <h4><a href="#"><%= blog.title %></a></h4>
+                    </div>
+                    <div class="post-meta">
+                      <ul class="list-unstyled mb-0">
+                        <li class="author">by:<a href="#"><%= blog.author.username %></a></li>
+                        <li class="date">date:<a href="#"><%= blog.created.toDateString() %></a></li>
+                        <li class="commont"><i class="ion-ios-heart-outline"></i><a href="#"><%= blog.comments.length %> Comments</a></li>
+                      </ul>
+                    </div>
+                    <p class="mb-30"><%= blog.body %></p>
+                    <% if(user && blog.author.id.equals(user._id)){ %>
+                    <a href="/blogs/<%= blog._id %>/edit" class="bt btn btn-warning">Edit</a>
+                    <form class="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                      <button class="bt btn btn-danger input-group-btn">Delete</button>
+                    </form>
+                   <% } %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="comments text-left padDiv mb-30">
+                  <div class="entry-comments">
+                    <h6 class="mb-30"><%= blog.comments.length %> comments</h6>
+                    <ul class="entry-comments-list list-unstyled">
+                      <% blog.comments.forEach(function(comment){ %>
+                        <li>
+                        <div class="entry-comments-item">
+                          <div class="entry-comments-body">
+                            <span class="entry-comments-author"><%= comment.author.username %></span>
+                            <p class="mb-10"><%= comment.text %></p>
+                          </div>
+                          <% if(user && comment.author.id.equals(user._id)){ %>
+                            <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>/edit" class="btn btn-success btn-sm">Edit</a>
+                            <form class="delete" action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <button class="bt btn btn-danger input-group-btn btn-sm">Delete</button>
+                            </form>
+                          <% } %>
+                        </div>
+                      </li>
+                    <% }) %>
+                    <div class="text-right">
+						          <a href="/blogs/<%= blog._id %>/comments/new" class="btn btn-success">Add comment</a>
+					          </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>     
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,29 @@
+ <% include ../partials/header %>
+
+  <div class="container">
+    <header class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Blogs page</h1>
+        <p>Look for the best</p>
+        <a class="btn btn-primary btn-lg" href="/blogs/new">Add new</a>
+      </div>
+    </header>
+      <div class="journal-block">
+        <div class="row text-center">
+        <% for(var i=blogs.length-1;i>=0;i--){ %>
+          <div class="col-lg-4 col-md-6">
+            <div class="journal-info mb-30">
+            <img src="<%= blogs[i].image %>" onerror="this.src='https://s3.envato.com/files/253555640/IMG_7708.jpg'" />   
+              <div class="journal-txt">
+                <h4><a href="/blogs/<%= blogs[i]._id %>"><%= blogs[i].title %></a></h4>
+                <p class="separator"><%= blogs[i].body.substring(0,50) %>....<a href="/blogs/<%= blogs[i]._id %>">[Read More]</a>
+                </p>
+              </div>    
+            </div>          
+          </div>
+           <% } %>
+        </div>
+      </div>
+  </div>
+
+ <% include ../partials/footer %>
