@@ -6,7 +6,7 @@ This site lets you write blogs.It is built using nodejs,mongodb,express and host
 - Add comments. Upload Image url. 
 - You have to register account to add a blog or comment.
 
-##Using blog-app
+## Using blog-app
 
  - Install all the packages in file package.json by using. :
 
